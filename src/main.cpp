@@ -17,10 +17,19 @@ void setup(){
 void loop(){
 
   digitalWrite(verd, HIGH);
-  delay(5000);
+
+  for(int i = 0; i < 50; i++){
+    int btatual = digitalRead(bt);
+
+    if(btatual == LOW){
+      break;
+    }
+    delay(100);
+  }
+
   digitalWrite(verd, LOW);
-  
-  for(int i = 0; i < 3; i++){
+
+  for(int i = 0; i < 3; i ++){
     digitalWrite(amar, HIGH);
     delay(500);
     digitalWrite(amar, LOW);
@@ -28,9 +37,10 @@ void loop(){
 
   }
 
-  digitalWrite(verm, HIGH);
-  delay(5000);
-  digitalWrite(verm, LOW);
+    digitalWrite(verm, HIGH);
+    delay(5000);
+    digitalWrite(verm, LOW);
+  
 
 
 
