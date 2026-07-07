@@ -35,6 +35,9 @@ O sistema funciona automaticamente e também possui um botão para pedestres. Qu
 
 Vídeo do projeto:
 
+
+![Diagrama do circuito](asset/diagrama)
+
 [▶️ Assistir ao vídeo](asset/demonstracao.mp4)
 
 
