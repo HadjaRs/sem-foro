@@ -10,6 +10,8 @@ const int amarB = 7;
 const int vermB = 8;
 const int btB = 9;
 
+const int buzzer = 10;
+
 void tempoEbotao(int botao){
 
     for(int i = 0; i < 50; i++){
@@ -26,8 +28,10 @@ void piscaAmarelo(int amarelo){
 
     for(int i = 0; i < 3; i++){
     digitalWrite(amarelo, LOW);
+    digitalWrite(buzzer, HIGH);
     delay(500);
     digitalWrite(amarelo, HIGH);
+    digitalWrite(buzzer, LOW);
     delay(500);
 
   }
@@ -46,6 +50,8 @@ void setup(){
   pinMode(amarB, OUTPUT);
   pinMode(vermB, OUTPUT);
   pinMode(btB,INPUT_PULLUP);
+
+  pinMode(buzzer, OUTPUT);
 
 }
 
