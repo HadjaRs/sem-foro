@@ -1,47 +1,96 @@
 #include <Arduino.h>
 
-const int verm = 5;
-const int amar = 4;
-const int verd = 3;
-const int bt = 2;
+const int verd = 2;
+const int amar = 3;
+const int verm = 4;
+const int bt = 5;
 
-void setup(){
-  Serial.begin(9600);
-  pinMode(verm, OUTPUT);
-  pinMode(amar, OUTPUT);
-  pinMode(verd, OUTPUT);
-  pinMode(bt, INPUT_PULLUP);
-  
-}
+const int verdB = 6;
+const int amarB = 7;
+const int vermB = 8;
+const int btB = 9;
 
-void loop(){
+void tempoEbotao(int botao){
 
-  digitalWrite(verd, HIGH);
-
-  for(int i = 0; i < 50; i++){
-    int btatual = digitalRead(bt);
+    for(int i = 0; i < 50; i++){
+    int btatual = digitalRead(botao);
 
     if(btatual == LOW){
       break;
     }
     delay(100);
   }
+}
 
-  digitalWrite(verd, LOW);
+void piscaAmarelo(int amarelo){
 
-  for(int i = 0; i < 3; i ++){
-    digitalWrite(amar, HIGH);
+    for(int i = 0; i < 3; i++){
+    digitalWrite(amarelo, LOW);
     delay(500);
-    digitalWrite(amar, LOW);
+    digitalWrite(amarelo, HIGH);
     delay(500);
 
   }
+}
 
-    digitalWrite(verm, HIGH);
-    delay(5000);
-    digitalWrite(verm, LOW);
-  
+void setup(){
 
+  Serial.begin(9600);
+
+  pinMode(verd, OUTPUT);
+  pinMode(amar, OUTPUT);
+  pinMode(verm, OUTPUT);
+  pinMode(bt,INPUT_PULLUP);
+
+  pinMode(verdB, OUTPUT);
+  pinMode(amarB, OUTPUT);
+  pinMode(vermB, OUTPUT);
+  pinMode(btB,INPUT_PULLUP);
+
+}
+
+void loop(){
+
+  // ===========================
+  // FUNÇÂO DO VERDE E VERMELHO
+  digitalWrite(verd, HIGH); digitalWrite(vermB, HIGH);
+
+  tempoEbotao(bt);
+
+  digitalWrite(verd, LOW); 
+
+  // ===========================
+  //FUNÇÂO DO AMARELO E VERMELHO 
+
+  digitalWrite(amar, HIGH); 
+  delay(2000);
+
+  piscaAmarelo(amar);
+
+  digitalWrite(amar, LOW); digitalWrite(vermB, LOW);
+
+  // ===========================
+  //FUNÇÂO DO VERMELHO E VERDE
+
+  digitalWrite(verm, HIGH); digitalWrite(verdB, HIGH);
+
+  tempoEbotao(btB);
+
+  digitalWrite(verdB, LOW); 
+
+
+  // ===========================
+  // FUNÇÂO DE VERMELHO E AMARELO
+
+  digitalWrite(amarB, HIGH);
+  delay(2000);
+
+  piscaAmarelo(amarB);
+
+  digitalWrite(verm, LOW); digitalWrite(amarB, LOW);
+
+  // ===========================
+  // E O CICLO SE REPETE DE NOVO
 
 
 }
