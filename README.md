@@ -40,10 +40,16 @@ Vídeo do projeto:
 
 [▶️ Assistir ao vídeo](asset/demonstracao.mp4)
 
-
-
-
 ---
+
+## 🎥 Demonstração da Segunda Versão
+
+Vídeo do projeto:
+
+
+![Diagrama do circuito](asset/diagrama2.jpeg)
+
+[▶️ Assistir ao vídeo](asset/demonstracao2.mp4)
 
 ## ▶️ Como executar
 
